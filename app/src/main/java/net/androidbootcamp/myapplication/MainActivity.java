@@ -23,7 +23,7 @@ Button signin_button;
        signin_button = findViewById(R.id.submit_button);
 
 //----------------------------------------------------
-//user signin input
+// User Sign In Input
 //----------------------------------------------------
 username_input = findViewById(R.id.username_input);
 
