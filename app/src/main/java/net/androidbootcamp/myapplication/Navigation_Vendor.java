@@ -4,11 +4,11 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class vendor_items extends AppCompatActivity {
+public class Navigation_Vendor extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vendor_items);
+        setContentView(R.layout.activity_navigation_vendor);
     }
 }
