@@ -61,6 +61,7 @@ public class Login extends AppCompatActivity {
                                     if (object == null) {
                                         Toast.makeText(Login.this, "Password is incorrect", Toast.LENGTH_LONG).show();
                                     } else {
+                                        Vendor_Items.setVendorName(usernameResult);
                                         Intent inToMain = new Intent(Login.this, Vendor_Items.class);
                                         startActivity(inToMain);
                                     }

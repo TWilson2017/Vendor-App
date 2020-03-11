@@ -15,7 +15,7 @@ import com.parse.SaveCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Register_Vendor extends AppCompatActivity {
-    EditText store_name, street_address, store_city, zip_code, tax_id, phone_num, acct_num, routing_num, state;
+    EditText store_name, street_address, store_city, zip_code, tax_id, phone_num, acct_num, routing_num, state, usernameAnswer, passwordAnswer;
     Button submit_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,9 @@ public class Register_Vendor extends AppCompatActivity {
         acct_num = findViewById(R.id.acct_num);
         routing_num = findViewById(R.id.routing_num);
         state = findViewById(R.id.state_id);
+        usernameAnswer = findViewById(R.id.username);
+        passwordAnswer = findViewById(R.id.password);
+
 
         //-----------------------------------
         //submit vendor registry info
@@ -57,10 +60,14 @@ public class Register_Vendor extends AppCompatActivity {
                 final String accountNumberResult = acct_num.getText().toString();
                 final String routingNumberResult = routing_num.getText().toString();
                 final String stateResult = state.getText().toString();
+                final String usernameResult = usernameAnswer.getText().toString();
+                final String passwordResult = passwordAnswer.getText().toString();
+
 
                 if (storeNameResult.isEmpty() || streetAddressResult.isEmpty() || storeCityResult.isEmpty() ||
                         zipCodeResult.isEmpty() || taxIdResult.isEmpty() || phoneNumberResult.isEmpty() ||
-                        accountNumberResult.isEmpty() || routingNumberResult.isEmpty() || stateResult.isEmpty()) {
+                        accountNumberResult.isEmpty() || routingNumberResult.isEmpty() || stateResult.isEmpty()
+                        || usernameResult.isEmpty() || passwordResult.isEmpty()) {
                     Toast.makeText(Register_Vendor.this, "Complete the registration fields.", Toast.LENGTH_SHORT).show();
                 } else {
                     ParseObject newStore = new ParseObject("Vendor");
@@ -72,9 +79,9 @@ public class Register_Vendor extends AppCompatActivity {
                     newStore.put("ven_tax_id", Integer.parseInt(taxIdResult));
                     newStore.put("ven_state", stateResult);
                     newStore.put("ven_account_num", Integer.parseInt(accountNumberResult));
-                    newStore.put("username", "game@ios.com");
+                    newStore.put("username", usernameResult);
                     newStore.put("ven_street_address", streetAddressResult);
-                    newStore.put("password", "password");
+                    newStore.put("password", passwordResult);
                     newStore.saveInBackground(new SaveCallback() {
                         public void done(ParseException e) {
                             if (e == null) {
