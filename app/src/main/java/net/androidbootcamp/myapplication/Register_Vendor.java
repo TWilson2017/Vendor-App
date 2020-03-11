@@ -7,12 +7,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.SaveCallback;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class Register_Vendor extends AppCompatActivity {
     EditText store_name, street_address, store_city, zip_code, tax_id, phone_num, acct_num, routing_num, state, usernameAnswer, passwordAnswer;
@@ -26,7 +26,7 @@ public class Register_Vendor extends AppCompatActivity {
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("tishauna-instagram-codepath") // should correspond to APP_ID env variable
                 .clientKey(null)  // set explicitly unless clientKey is explicitly configured on Parse server
-                .server("http://tishauna-instagram-codepath.herokuapp.com/parse/").build());
+                .server("https://tishauna-instagram-codepath.herokuapp.com/parse/").build());
 
         //-------------------------------
         // Vendor Registration Input
@@ -85,8 +85,8 @@ public class Register_Vendor extends AppCompatActivity {
                     newStore.saveInBackground(new SaveCallback() {
                         public void done(ParseException e) {
                             if (e == null) {
-                                Toast.makeText(Register_Vendor.this, "Store Created.", Toast.LENGTH_SHORT).show();
-                                Intent c = new Intent(Register_Vendor.this, Login.class);
+                                Toast.makeText(Register_Vendor.this, "Vendor Created.", Toast.LENGTH_SHORT).show();
+                                Intent c = new Intent(Register_Vendor.this, MainActivity.class);
                                 startActivity(c);
                             } else {
                                 // Error occurred

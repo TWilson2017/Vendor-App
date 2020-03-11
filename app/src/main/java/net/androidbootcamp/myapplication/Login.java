@@ -7,13 +7,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.parse.GetCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class Login extends AppCompatActivity {
     EditText username_input;
@@ -25,11 +25,10 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_login_register);
 
-        Parse.enableLocalDatastore(this);
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("tishauna-instagram-codepath") // should correspond to APP_ID env variable
                 .clientKey(null)  // set explicitly unless clientKey is explicitly configured on Parse server
-                .server("http://tishauna-instagram-codepath.herokuapp.com/parse/").build());
+                .server("https://tishauna-instagram-codepath.herokuapp.com/parse/").enableLocalDataStore().build());
 
 //----------------------------------------------------
 // User Sign in Input
