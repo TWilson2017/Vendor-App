@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -15,6 +16,8 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.List;
 
 public class Login extends AppCompatActivity {
     EditText username_input;
@@ -50,26 +53,29 @@ public class Login extends AppCompatActivity {
 
               ParseQuery<ParseObject> query = ParseQuery.getQuery("Vendor");
               query.whereEqualTo("username", usernameResult);
-              query.getFirstInBackground(new GetCallback<ParseObject>() {
-                   public void done(ParseObject object, ParseException e) {
-                       if (object == null) {
-                           Toast.makeText(Login.this, "Username is incorrect", Toast.LENGTH_LONG).show();
-                           e.printStackTrace();
-                       } else {
-                           ParseQuery<ParseObject> query2 = ParseQuery.getQuery("Vendor");
-                           query2.whereEqualTo("password", passwordResult);
-                            query2.getFirstInBackground(new GetCallback<ParseObject>() {
-                               public void done(ParseObject object, ParseException e) {
-                                    if (object == null) {
-                                       Toast.makeText(Login.this, "Password is incorrect", Toast.LENGTH_LONG).show();
-                                    } else {
-                                   Intent inToMain = new Intent(Login.this, nav.class);
-                                      startActivity(inToMain);
-                                      finish();
-                                   }
-                                }
-                            });
+              query.whereEqualTo("password", passwordResult);
+
+              query.findInBackground(new FindCallback<ParseObject>() {
+                  Intent inToMain = new Intent(Login.this, nav.class);
+
+                   public void done(List<ParseObject> object, ParseException e) {
+                       if (e == null) {
+                         //  Log.d("users","Retrieved " + object.size() + " users");
+                         //  e.printStackTrace();
+
+                           if(object.size() == 0)
+                           {
+                               Toast.makeText(Login.this, "Invalid user credentials", Toast.LENGTH_LONG).show();
+                           }
+                           else
+                               {
+                                   startActivity(inToMain);
+                               }
                        }
+
+                       else {
+                             //   Log.d("users", "Error: " + e.getMessage());
+                            }
                     }
                 });
             }

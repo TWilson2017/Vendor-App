@@ -22,12 +22,6 @@ public class Register_Vendor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register__vendor);
 
-        /*Parse.enableLocalDatastore(this);
-        Parse.initialize(new Parse.Configuration.Builder(this)
-                .applicationId("mynewapp") // should correspond to APP_ID env variable
-                .clientKey(null)  // set explicitly unless clientKey is explicitly configured on Parse server
-                .server("http://tester-20.herokuapp.com/parse").build());*/
-
         //-------------------------------
         // Vendor Registration Input
         //-------------------------------
@@ -75,9 +69,7 @@ public class Register_Vendor extends AppCompatActivity {
                     newStore.put("ven_tax_id", Integer.parseInt(taxIdResult));
                     newStore.put("ven_state", stateResult);
                     newStore.put("ven_account_num", Integer.parseInt(accountNumberResult));
-                   // newStore.put("username", "game@ios.com");not sure the purpose of this
                     newStore.put("ven_street_address", streetAddressResult);
-                   // newStore.put("password", "password");not sure the purpose of this
                     newStore.put("password", passwordResult);
                     newStore.put("username", usernameResult);
 
