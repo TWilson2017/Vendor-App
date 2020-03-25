@@ -8,7 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import com.parse.FindCallback;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.parse.GetCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -18,6 +21,7 @@ import com.parse.ParseQuery;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
+
 
 public class Login extends AppCompatActivity {
     EditText username_input;
@@ -34,6 +38,11 @@ public class Login extends AppCompatActivity {
                .applicationId("mynewapp") // should correspond to APP_ID env variable
                .clientKey("oreo")  // set explicitly unless clientKey is explicitly configured on Parse server
                .server("https://tester-20.herokuapp.com/parse").build());*/
+
+        Parse.initialize(new Parse.Configuration.Builder(this)
+                .applicationId("tishauna-instagram-codepath") // should correspond to APP_ID env variable
+                .clientKey(null)  // set explicitly unless clientKey is explicitly configured on Parse server
+                .server("https://tishauna-instagram-codepath.herokuapp.com/parse/").enableLocalDataStore().build());
 
 //----------------------------------------------------
 // User Sign in Input
@@ -76,6 +85,27 @@ public class Login extends AppCompatActivity {
                        else {
                              //   Log.d("users", "Error: " + e.getMessage());
                             }
+                ParseQuery<ParseObject> query = ParseQuery.getQuery("Vendor");
+                query.whereEqualTo("username", usernameResult);
+                query.getFirstInBackground(new GetCallback<ParseObject>() {
+                    public void done(ParseObject object, ParseException e) {
+                        if (object == null) {
+                            Toast.makeText(Login.this, "Username is incorrect", Toast.LENGTH_LONG).show();
+                        } else {
+                            ParseQuery<ParseObject> query2 = ParseQuery.getQuery("Vendor");
+                            query2.whereEqualTo("password", passwordResult);
+                            query2.getFirstInBackground(new GetCallback<ParseObject>() {
+                                public void done(ParseObject object, ParseException e) {
+                                    if (object == null) {
+                                        Toast.makeText(Login.this, "Password is incorrect", Toast.LENGTH_LONG).show();
+                                    } else {
+                                        Vendor_Items.setVendorName(usernameResult);
+                                        Intent inToMain = new Intent(Login.this, Vendor_Items.class);
+                                        startActivity(inToMain);
+                                    }
+                                }
+                            });
+                        }
                     }
                 });
             }
