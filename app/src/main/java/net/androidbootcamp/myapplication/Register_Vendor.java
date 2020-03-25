@@ -15,6 +15,7 @@ import com.parse.ParseObject;
 import com.parse.SaveCallback;
 
 public class Register_Vendor extends AppCompatActivity {
+    EditText store_name, street_address, store_city, zip_code, tax_id, phone_num, acct_num, routing_num, state_id, username, password;
     EditText store_name, street_address, store_city, zip_code, tax_id, phone_num, acct_num, routing_num, state, usernameAnswer, passwordAnswer;
     Button submit_button;
     @Override
@@ -27,7 +28,6 @@ public class Register_Vendor extends AppCompatActivity {
                 .applicationId("tishauna-instagram-codepath") // should correspond to APP_ID env variable
                 .clientKey(null)  // set explicitly unless clientKey is explicitly configured on Parse server
                 .server("https://tishauna-instagram-codepath.herokuapp.com/parse/").build());
-
         //-------------------------------
         // Vendor Registration Input
         //-------------------------------
@@ -39,10 +39,12 @@ public class Register_Vendor extends AppCompatActivity {
         phone_num = findViewById(R.id.phone_num);
         acct_num = findViewById(R.id.acct_num);
         routing_num = findViewById(R.id.routing_num);
+        state_id = findViewById(R.id.state_id);
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
         state = findViewById(R.id.state_id);
         usernameAnswer = findViewById(R.id.username);
         passwordAnswer = findViewById(R.id.password);
-
 
         //-----------------------------------
         //submit vendor registry info
@@ -59,6 +61,13 @@ public class Register_Vendor extends AppCompatActivity {
                 final String phoneNumberResult = phone_num.getText().toString();
                 final String accountNumberResult = acct_num.getText().toString();
                 final String routingNumberResult = routing_num.getText().toString();
+                final String stateResult = state_id.getText().toString();
+                final String passwordResult = password.getText().toString();
+                final String usernameResult = username.getText().toString();
+
+                if (storeNameResult.isEmpty() || streetAddressResult.isEmpty() || storeCityResult.isEmpty() ||
+                        zipCodeResult.isEmpty() || taxIdResult.isEmpty() || phoneNumberResult.isEmpty() ||
+                        accountNumberResult.isEmpty() || routingNumberResult.isEmpty() || stateResult.isEmpty()|| passwordResult.isEmpty() || usernameResult.isEmpty()){
                 final String stateResult = state.getText().toString();
                 final String usernameResult = usernameAnswer.getText().toString();
                 final String passwordResult = passwordAnswer.getText().toString();
@@ -79,6 +88,9 @@ public class Register_Vendor extends AppCompatActivity {
                     newStore.put("ven_tax_id", Integer.parseInt(taxIdResult));
                     newStore.put("ven_state", stateResult);
                     newStore.put("ven_account_num", Integer.parseInt(accountNumberResult));
+                    newStore.put("ven_street_address", streetAddressResult);
+                    newStore.put("password", passwordResult);
+                    newStore.put("username", usernameResult);
                     newStore.put("username", usernameResult);
                     newStore.put("ven_street_address", streetAddressResult);
                     newStore.put("password", passwordResult);
