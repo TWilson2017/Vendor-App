@@ -26,7 +26,7 @@ public class Register_Vendor extends AppCompatActivity {
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("tishauna-instagram-codepath") // should correspond to APP_ID env variable
                 .clientKey(null)  // set explicitly unless clientKey is explicitly configured on Parse server
-                .server("http://tishauna-instagram-codepath.herokuapp.com/parse/").build());
+                .server("https://tishauna-instagram-codepath.herokuapp.com/parse/").build());
 
         //-------------------------------
         // Vendor Registration Input
@@ -85,7 +85,7 @@ public class Register_Vendor extends AppCompatActivity {
                     newStore.saveInBackground(new SaveCallback() {
                         public void done(ParseException e) {
                             if (e == null) {
-                                Toast.makeText(Register_Vendor.this, "Store Created.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Register_Vendor.this, "Vendor Created.", Toast.LENGTH_SHORT).show();
                                 Intent c = new Intent(Register_Vendor.this, Login.class);
                                 startActivity(c);
                             } else {
