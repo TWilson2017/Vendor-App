@@ -30,10 +30,12 @@
         android:ems="10"
         android:hint="USERNAME"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintHorizontal_bias="0.565"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_icon" />
+        app:layout_constraintTop_toBottomOf="@+id/phone_icon"
+        app:layout_constraintVertical_bias="0.099" />
 
     <EditText
         android:id="@+id/password_input"
@@ -45,10 +47,12 @@
         android:hint="PASSWORD"
         android:inputType="textPassword"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintHorizontal_bias="0.565"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_icon" />
+        app:layout_constraintTop_toBottomOf="@+id/phone_icon"
+        app:layout_constraintVertical_bias="0.118" />
 
     <ImageView
         android:id="@+id/phone_icon"
@@ -65,19 +69,19 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.095" />
+        app:layout_constraintVertical_bias="0.058" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/forgotpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="84dp"
         android:text="@string/forgot_password"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/signin_button3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.787"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_input2"
         app:layout_constraintVertical_bias="0.12" />
 
