@@ -7,12 +7,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.parse.Parse;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.SaveCallback;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class Register_Vendor extends AppCompatActivity {
     EditText store_name, street_address, store_city, zip_code, tax_id, phone_num, acct_num, routing_num, state_id, username, password;
@@ -77,11 +76,12 @@ public class Register_Vendor extends AppCompatActivity {
                         public void done(ParseException e) {
                             if (e == null) {
                                 Toast.makeText(Register_Vendor.this, "Store Created.", Toast.LENGTH_SHORT).show();
-                                Intent c = new Intent(Register_Vendor.this, Login.class);
+                                Intent c = new Intent(Register_Vendor.this, Manager_Vendor_Login.class);
                                 startActivity(c);
                             } else {
                                 // Error occurred
-                                Toast.makeText(Register_Vendor.this, e.getMessage(), Toast.LENGTH_LONG);
+                                Toast.makeText(Register_Vendor.this, e.getMessage(), Toast.LENGTH_LONG).show();
+
                             }
                         }
                     });

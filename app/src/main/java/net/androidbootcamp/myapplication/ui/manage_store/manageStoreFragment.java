@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,9 +16,9 @@ import androidx.lifecycle.ViewModelProviders;
 
 import net.androidbootcamp.myapplication.R;
 
-public class GalleryFragment extends Fragment {
-    //EditText item_qty,prod_name,sku_num,item_type,item_price;
-    //   // Button add_item;
+public class manageStoreFragment extends Fragment {
+    private EditText item_qty, prod_name, sku_num, item_type, item_price;
+    private Button add_item;
     private GalleryViewModel galleryViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -27,7 +26,7 @@ public class GalleryFragment extends Fragment {
 
         galleryViewModel =
                 ViewModelProviders.of(this).get(GalleryViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
+        View root = inflater.inflate(R.layout.add_items, container, false);
 
         galleryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
