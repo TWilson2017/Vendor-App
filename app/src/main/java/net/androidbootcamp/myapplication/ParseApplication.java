@@ -10,6 +10,8 @@ public class ParseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+//parse-dashboard --appId mynewapp --masterKey oreo --serverURL "https://tester-20.herokuapp.com/parse" --port 9591 --dev
+        //https://pixel-nancy-9591.codio.io
 
         ParseObject.registerSubclass(Product.class);
 

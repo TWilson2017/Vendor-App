@@ -15,8 +15,8 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 
-import net.androidbootcamp.myapplication.R;
 import net.androidbootcamp.myapplication.Product;
+import net.androidbootcamp.myapplication.R;
 import net.androidbootcamp.myapplication.itemList_adapter;
 
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @NonNull ViewGroup container, Bundle savedInstanceState) {
         //homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_home_items, container, false);
         return root;
     }// end oncreateview
 
