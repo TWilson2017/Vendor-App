@@ -1,12 +1,15 @@
 package net.androidbootcamp.myapplication.ui.manage_store;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 
@@ -17,8 +20,11 @@ import java.util.List;
 
 public class manageStore extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_items);
 
@@ -31,6 +37,7 @@ public class manageStore extends AppCompatActivity {
         final TextView item_type = findViewById(R.id.item_type);
         final TextView item_price = findViewById(R.id.item_price);
         final Button add_item_btn = findViewById(R.id.add_item_btn);
+
         final ParseQuery<Product> query = ParseQuery.getQuery("Product");
 
         query.whereEqualTo("pro_sku_num", sku_num);
@@ -48,9 +55,11 @@ public class manageStore extends AppCompatActivity {
             }//end done
         });//findInBackground
 
-      /*  add_item_btn.setOnClickListener(new View.OnClickListener() {
+
+        add_item_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 ParseQuery<Product> query = ParseQuery.getQuery("Product");
                 query.getInBackground(sku_num.getText().toString(), new GetCallback<Product>() {
                     @Override
@@ -65,10 +74,8 @@ public class manageStore extends AppCompatActivity {
 
                             Toast toast = Toast.makeText(getApplicationContext(), "Item Added", Toast.LENGTH_LONG);
                             toast.show();
-
-                            Intent inToMain = new Intent(manageStore.this, HomeFragment.class);
-                            startActivity(inToMain);
                         } else {
+
                             Toast toast = Toast.makeText(getApplicationContext(), "Unable to Add New Item.", Toast.LENGTH_LONG);
                             toast.show();
 
@@ -77,8 +84,5 @@ public class manageStore extends AppCompatActivity {
                 });//end query
             }//end on click
         });//onclicklistener
-
-       */
-
     }//onCreate
 }//Class
