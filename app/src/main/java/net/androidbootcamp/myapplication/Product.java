@@ -12,11 +12,21 @@ public class Product extends ParseObject {
     public static final String PRODUCT_IMG = "img";
     public static final String PRODUCT_TYPE = "pro_type";
     public static final String SKU_NUM = "pro_sku_num";
+    public static final String BRAND_ID = "bra_id";
 
     public Product() {
         super();
     }
 
+//add get/set storeID
+
+    public ParseObject getbrandId() {
+        return getParseObject(BRAND_ID);
+    }
+
+    public void setBrandId(ParseObject brandId) {
+        put(BRAND_ID, brandId);
+    }
     public String getpro_name() {
         return getString(PRODUCT_NAME);
     }
