@@ -76,8 +76,8 @@ public class manageStoreFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                //ParseQuery<ParseObject> query = ParseQuery.getQuery("Brand");
-                //                query.getInBackground(from store table(storeId), new GetCallback<Store>()
+                //ParseQuery<ParseObject> query = ParseQuery.getQuery("Store");
+                //   query.getInBackground(from store table(storeId), new GetCallback<Store>()
 
                 ParseQuery<ParseObject> query = ParseQuery.getQuery("Brand");
                 query.getInBackground("9N3gENt4cE", new GetCallback<ParseObject>() {
