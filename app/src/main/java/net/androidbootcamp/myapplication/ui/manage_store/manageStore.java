@@ -6,8 +6,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
@@ -17,6 +15,8 @@ import net.androidbootcamp.myapplication.Product;
 import net.androidbootcamp.myapplication.R;
 
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class manageStore extends AppCompatActivity {
 
