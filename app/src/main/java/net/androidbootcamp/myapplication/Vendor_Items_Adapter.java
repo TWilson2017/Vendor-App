@@ -1,4 +1,4 @@
-package net.androidbootcamp.myapplication;
+/***package net.androidbootcamp.myapplication;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -67,4 +67,4 @@ public class Vendor_Items_Adapter extends RecyclerView.Adapter<Vendor_Items_Adap
             });
         }
     }
-}
+    }***/

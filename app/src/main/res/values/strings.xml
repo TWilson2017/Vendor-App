@@ -23,5 +23,6 @@
     <string name="username">Username</string>
     <string name="logo">logo</string>
     <string name="managerPassword">Password</string>
+    <string name="menu_update">Update Item</string>
 
 </resources>

@@ -26,6 +26,7 @@ public class MainLoginRegister extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent inToMain = new Intent(MainLoginRegister.this, Manager_Vendor_Login.class);
+                inToMain.putExtra("type", "Vendor");
                 startActivity(inToMain);
             }
         });
@@ -38,6 +39,7 @@ public class MainLoginRegister extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent inToMain = new Intent(MainLoginRegister.this, Manager_Vendor_Login.class);
+                inToMain.putExtra("type", "Store");
                 startActivity(inToMain);
             }
         });

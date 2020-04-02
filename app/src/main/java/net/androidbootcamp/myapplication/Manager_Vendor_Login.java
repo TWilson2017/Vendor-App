@@ -20,12 +20,26 @@ public class Manager_Vendor_Login extends AppCompatActivity {
     EditText username_input;
     EditText password_input;
     Button signIn_button;
+    String vendorType = "Vendor";
+    String managerType = "Store";
+    String managerPasswordType = "StoreUser";
+    String loginType;
+    ParseQuery<ParseObject> query2 = ParseQuery.getQuery(managerPasswordType);
+    boolean wrongCred = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_login_register);
 
+        Intent answer = getIntent();
+        loginType = answer.getStringExtra("type");
+
+        if (loginType.equals(vendorType)) {
+            this.loginType = vendorType;
+        } else if (loginType.equals(managerType)) {
+            this.loginType = managerType;
+        }
 //----------------------------------------------------
 // User Sign in Input
 //----------------------------------------------------
@@ -39,28 +53,70 @@ public class Manager_Vendor_Login extends AppCompatActivity {
         signIn_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 final String usernameResult = username_input.getText().toString();
                 final String passwordResult = password_input.getText().toString();
 
-                ParseQuery<ParseObject> query = ParseQuery.getQuery("Vendor");
-                query.whereEqualTo("username", usernameResult);
-                query.whereEqualTo("password", passwordResult);
+                if (loginType.equals(vendorType)) {
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery(loginType);
 
-                query.findInBackground(new FindCallback<ParseObject>() {
-                    Intent inToMain = new Intent(Manager_Vendor_Login.this, nav.class);
+                    query.whereEqualTo("username", usernameResult);
+                    query.whereEqualTo("password", passwordResult);
 
-                    public void done(List<ParseObject> object, ParseException e) {
-                        if (e == null) {
-                            if (object.size() == 0) {
-                                Toast.makeText(Manager_Vendor_Login.this, "Invalid user credentials", Toast.LENGTH_LONG).show();
+                    query.findInBackground(new FindCallback<ParseObject>() {
+                        // TODO: change this to show all stores
+                        Intent inToMain = new Intent(Manager_Vendor_Login.this, nav.class);
+
+                        public void done(List<ParseObject> object, ParseException e) {
+                            if (e == null) {
+                                if (object.size() == 0) {
+                                    Toast.makeText(Manager_Vendor_Login.this, "Invalid user credentials", Toast.LENGTH_LONG).show();
+                                } else {
+                                    startActivity(inToMain);
+                                }
                             } else {
-                                startActivity(inToMain);
-                            }
-                        } else {
 
+                            }
                         }
-                    }
-                });
+                    });
+                } else if (loginType.equals(managerType)) {
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery(loginType);
+
+                    query.whereEqualTo("sto_email", usernameResult);
+                    query2.whereEqualTo("stu_password", passwordResult);
+
+                    query.findInBackground(new FindCallback<ParseObject>() {
+                        Intent inToMain = new Intent(Manager_Vendor_Login.this, nav.class);
+
+                        public void done(List<ParseObject> object, ParseException e) {
+                            if (e == null) {
+                                if (object.size() == 0) {
+                                    Toast.makeText(Manager_Vendor_Login.this, "Invalid user credentials", Toast.LENGTH_LONG).show();
+                                    wrongCred = true;
+                                } else {
+                                    if (wrongCred == false) {
+                                        query2.findInBackground(new FindCallback<ParseObject>() {
+                                            Intent inToMain = new Intent(Manager_Vendor_Login.this, nav.class);
+
+                                            public void done(List<ParseObject> object, ParseException e) {
+                                                if (e == null) {
+                                                    if (object.size() == 0) {
+                                                        Toast.makeText(Manager_Vendor_Login.this, "Invalid user credentials", Toast.LENGTH_LONG).show();
+                                                    } else {
+                                                        startActivity(inToMain);
+                                                    }
+                                                } else {
+                                                }
+                                            }
+                                        });
+                                    }
+                                }
+                            } else {
+
+                            }
+                        }
+                    });
+                }
             }
         });
     }
