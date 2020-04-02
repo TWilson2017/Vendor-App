@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.SaveCallback;
@@ -15,18 +14,14 @@ import com.parse.SaveCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Register_Vendor extends AppCompatActivity {
-    EditText store_name, street_address, store_city, zip_code, tax_id, phone_num, acct_num, routing_num, state, usernameAnswer, passwordAnswer;
+
+    EditText store_name, street_address, store_city, zip_code, tax_id, phone_num, acct_num, routing_num, state_id, username, password;
+
     Button submit_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register__vendor);
-
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(new Parse.Configuration.Builder(this)
-                .applicationId("tishauna-instagram-codepath") // should correspond to APP_ID env variable
-                .clientKey(null)  // set explicitly unless clientKey is explicitly configured on Parse server
-                .server("https://tishauna-instagram-codepath.herokuapp.com/parse/").build());
 
         //-------------------------------
         // Vendor Registration Input
@@ -39,10 +34,9 @@ public class Register_Vendor extends AppCompatActivity {
         phone_num = findViewById(R.id.phone_num);
         acct_num = findViewById(R.id.acct_num);
         routing_num = findViewById(R.id.routing_num);
-        state = findViewById(R.id.state_id);
-        usernameAnswer = findViewById(R.id.username);
-        passwordAnswer = findViewById(R.id.password);
-
+        state_id = findViewById(R.id.state_id);
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
 
         //-----------------------------------
         //submit vendor registry info
@@ -59,15 +53,13 @@ public class Register_Vendor extends AppCompatActivity {
                 final String phoneNumberResult = phone_num.getText().toString();
                 final String accountNumberResult = acct_num.getText().toString();
                 final String routingNumberResult = routing_num.getText().toString();
-                final String stateResult = state.getText().toString();
-                final String usernameResult = usernameAnswer.getText().toString();
-                final String passwordResult = passwordAnswer.getText().toString();
-
+                final String stateResult = state_id.getText().toString();
+                final String passwordResult = password.getText().toString();
+                final String usernameResult = username.getText().toString();
 
                 if (storeNameResult.isEmpty() || streetAddressResult.isEmpty() || storeCityResult.isEmpty() ||
                         zipCodeResult.isEmpty() || taxIdResult.isEmpty() || phoneNumberResult.isEmpty() ||
-                        accountNumberResult.isEmpty() || routingNumberResult.isEmpty() || stateResult.isEmpty()
-                        || usernameResult.isEmpty() || passwordResult.isEmpty()) {
+                        accountNumberResult.isEmpty() || routingNumberResult.isEmpty() || stateResult.isEmpty() || passwordResult.isEmpty() || usernameResult.isEmpty()) {
                     Toast.makeText(Register_Vendor.this, "Complete the registration fields.", Toast.LENGTH_SHORT).show();
                 } else {
                     ParseObject newStore = new ParseObject("Vendor");
@@ -79,18 +71,20 @@ public class Register_Vendor extends AppCompatActivity {
                     newStore.put("ven_tax_id", Integer.parseInt(taxIdResult));
                     newStore.put("ven_state", stateResult);
                     newStore.put("ven_account_num", Integer.parseInt(accountNumberResult));
-                    newStore.put("username", usernameResult);
                     newStore.put("ven_street_address", streetAddressResult);
                     newStore.put("password", passwordResult);
+                    newStore.put("username", usernameResult);
+
                     newStore.saveInBackground(new SaveCallback() {
                         public void done(ParseException e) {
                             if (e == null) {
-                                Toast.makeText(Register_Vendor.this, "Vendor Created.", Toast.LENGTH_SHORT).show();
-                                Intent c = new Intent(Register_Vendor.this, Login.class);
+                                Toast.makeText(Register_Vendor.this, "Store Created.", Toast.LENGTH_SHORT).show();
+                                Intent c = new Intent(Register_Vendor.this, Manager_Vendor_Login.class);
                                 startActivity(c);
                             } else {
                                 // Error occurred
-                                Toast.makeText(Register_Vendor.this, e.getMessage(), Toast.LENGTH_LONG);
+                                Toast.makeText(Register_Vendor.this, e.getMessage(), Toast.LENGTH_LONG).show();
+
                             }
                         }
                     });

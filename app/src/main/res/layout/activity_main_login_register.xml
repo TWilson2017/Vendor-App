@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f7ffdd"
-    tools:context=".Login">
+    tools:context=".Manager_Vendor_Login">
 
     <Button
         android:id="@+id/signin_button3"
         android:layout_width="145dp"
         android:layout_height="40dp"
+        android:layout_marginTop="135dp"
         android:background="#B1CF5F"
         android:text="SIGN IN"
         android:textColor="#707070"
@@ -18,8 +19,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875" />
+        app:layout_constraintTop_toBottomOf="@+id/password_input"
+        app:layout_constraintVertical_bias="0.139" />
 
     <EditText
         android:id="@+id/username_input"
@@ -34,14 +35,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.565"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_icon"
-        app:layout_constraintVertical_bias="0.099" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.491" />
 
     <EditText
         android:id="@+id/password_input"
         android:layout_width="266dp"
         android:layout_height="52dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="27dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:hint="PASSWORD"
@@ -49,10 +50,10 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_icon"
-        app:layout_constraintVertical_bias="0.118" />
+        app:layout_constraintTop_toBottomOf="@+id/username_input"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/phone_icon"
@@ -64,26 +65,27 @@
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         android:src="@drawable/gotit_logo"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/username_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.058" />
+        app:layout_constraintVertical_bias="0.292" />
 
     <TextView
         android:id="@+id/forgotpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="84dp"
         android:text="@string/forgot_password"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/signin_button3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.787"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username_input2"
-        app:layout_constraintVertical_bias="0.12" />
+        app:layout_constraintTop_toBottomOf="@+id/password_input"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

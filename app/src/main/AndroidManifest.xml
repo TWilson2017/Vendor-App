@@ -16,11 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".RegisterManager"></activity>
         <activity
             android:name=".nav"
             android:label="@string/title_activity_nav"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainLoginRegister">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Login"
+            android:name=".Manager_Vendor_Login"
             android:label="@string/app_name">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />

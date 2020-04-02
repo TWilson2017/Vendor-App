@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f7ffdd"
-    tools:context=".MainActivity">
+    tools:context=".MainLoginRegister">
 
     <ImageView
         android:id="@+id/phone_icon"
@@ -25,9 +25,45 @@
         app:layout_constraintVertical_bias="0.068" />
 
     <Button
+        android:id="@+id/storeManLogin"
+        android:layout_width="145dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#B1CF5F"
+        android:text="SIGN IN"
+        android:textColor="#707070"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.706"
+        app:layout_constraintStart_toEndOf="@+id/signin_button2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.651" />
+
+    <Button
+        android:id="@+id/storeManRegister"
+        android:layout_width="145dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#B1CF5F"
+        android:text="REGISTER"
+        android:textColor="#707070"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.703"
+        app:layout_constraintStart_toEndOf="@+id/register_button"
+        app:layout_constraintTop_toBottomOf="@+id/storeManLogin"
+        app:layout_constraintVertical_bias="0.179" />
+
+    <Button
         android:id="@+id/signin_button2"
         android:layout_width="145dp"
         android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="100dp"
         android:background="#B1CF5F"
         android:text="SIGN IN"
@@ -35,21 +71,56 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.483" />
+        app:layout_constraintVertical_bias="0.592" />
 
     <Button
         android:id="@+id/register_button"
         android:layout_width="145dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:background="#B1cf5f"
         android:text="REGISTER"
         android:textColor="#707070"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signin_button2"
+        app:layout_constraintVertical_bias="0.179" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="101dp"
+        android:text="VENDOR"
+        app:layout_constraintBottom_toTopOf="@+id/signin_button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.228"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone_icon"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="101dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="STORE MANAGER"
+        app:layout_constraintBottom_toTopOf="@+id/storeManLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.857"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone_icon"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
