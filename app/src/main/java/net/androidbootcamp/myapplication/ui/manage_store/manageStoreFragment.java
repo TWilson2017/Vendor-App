@@ -76,42 +76,43 @@ public class manageStoreFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                //ParseQuery<ParseObject> query = ParseQuery.getQuery("Brand");
-                //                query.getInBackground(from store table(storeId), new GetCallback<Store>()
-
-                ParseQuery<ParseObject> query = ParseQuery.getQuery("Brand");
-                query.getInBackground("9N3gENt4cE", new GetCallback<ParseObject>() {
+                ParseQuery<ParseObject> query = ParseQuery.getQuery("Store");
+                query.getInBackground("txI0TpA8OS", new GetCallback<ParseObject>() {
                     @Override
                     public void done(ParseObject object, ParseException e) {
-                        Product products = new Product();
-                        products.setpro_name(prod_name.getText().toString());
-                        products.setpro_price(Double.parseDouble(item_price.getText().toString()));
-                        products.setpro_quantity(Integer.parseInt(item_qty.getText().toString()));
-                        products.setsku_num(Integer.parseInt(sku_num.getText().toString()));
-                        products.setpro_type(item_type.getText().toString());
-                        products.setBrandId(object);
-
-                        products.saveInBackground(new SaveCallback() {
+                        ParseQuery<ParseObject> query = ParseQuery.getQuery("Brand");
+                        query.getInBackground("9N3gENt4cE", new GetCallback<ParseObject>() {
                             @Override
-                            public void done(ParseException e) {
-                                if (e == null) {
-                                    Toast toast = Toast.makeText(getContext(), "Item Added", Toast.LENGTH_LONG);
-                                    toast.show();
-                                } else {
-                                    Log.d("unable add item", e.toString());
-                                    Toast toast = Toast.makeText(getContext(), "Unable to Add New Item.", Toast.LENGTH_LONG);
-                                    toast.show();
+                            public void done(ParseObject object, ParseException e) {
+                                Product products = new Product();
+                                products.setpro_name(prod_name.getText().toString());
+                                products.setpro_price(Double.parseDouble(item_price.getText().toString()));
+                                products.setpro_quantity(Integer.parseInt(item_qty.getText().toString()));
+                                products.setsku_num(Integer.parseInt(sku_num.getText().toString()));
+                                products.setpro_type(item_type.getText().toString());
+                                products.setBrandId(object);
 
-                                }//end if
+                                products.saveInBackground(new SaveCallback() {
+                                    @Override
+                                    public void done(ParseException e) {
+                                        if (e == null) {
+                                            Toast toast = Toast.makeText(getContext(), "Item Added", Toast.LENGTH_LONG);
+                                            toast.show();
+                                        } else {
+                                            Log.d("unable add item", e.toString());
+                                            Toast toast = Toast.makeText(getContext(), "Unable to Add New Item.", Toast.LENGTH_LONG);
+                                            toast.show();
+
+                                        }//end if
+                                    }//end done
+                                });//end new saveCallBack
                             }//end done
-                        });//end query
-
-
-                    }//end done
-                });//end getinbackground
-            }//end on click
-        });//onclicklistener
-    }
+                        });//end of newgetCallBack
+                    }//end on done
+                });//end of newgetCallBack
+            } // end onclick
+        }); //end onclickListener
+    } //end of onView
 }//end galleryFragment
 
 
