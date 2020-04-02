@@ -6,15 +6,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.SaveCallback;
 
 public class Register_Vendor extends AppCompatActivity {
+
     EditText store_name, street_address, store_city, zip_code, tax_id, phone_num, acct_num, routing_num, state_id, username, password;
+
     Button submit_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,7 @@ public class Register_Vendor extends AppCompatActivity {
         state_id = findViewById(R.id.state_id);
        username = findViewById(R.id.username);
        password = findViewById(R.id.password);
+
         //-----------------------------------
         //submit vendor registry info
         //------------------------------------

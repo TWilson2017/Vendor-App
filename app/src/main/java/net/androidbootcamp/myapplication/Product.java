@@ -18,11 +18,11 @@ public class Product extends ParseObject {
         super();
     }
 
-//add get/set storeID
 
     public ParseObject getbrandId() {
         return getParseObject(BRAND_ID);
     }
+
 
     public void setBrandId(ParseObject brandId) {
         put(BRAND_ID, brandId);
