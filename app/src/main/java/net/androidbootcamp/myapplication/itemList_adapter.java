@@ -8,14 +8,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import net.androidbootcamp.myapplication.ui.store_home.HomeFragment;
+
+import java.util.List;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
-
-import net.androidbootcamp.myapplication.ui.store_home.HomeFragment;
-
-import java.util.List;
 
 public class itemList_adapter extends RecyclerView.Adapter<itemList_adapter.ViewHolder> {
     private Context context;

@@ -6,10 +6,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
+
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.SaveCallback;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Register_Vendor extends AppCompatActivity {
 
@@ -33,8 +35,8 @@ public class Register_Vendor extends AppCompatActivity {
         acct_num = findViewById(R.id.acct_num);
         routing_num = findViewById(R.id.routing_num);
         state_id = findViewById(R.id.state_id);
-       username = findViewById(R.id.username);
-       password = findViewById(R.id.password);
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
 
         //-----------------------------------
         //submit vendor registry info
@@ -57,7 +59,7 @@ public class Register_Vendor extends AppCompatActivity {
 
                 if (storeNameResult.isEmpty() || streetAddressResult.isEmpty() || storeCityResult.isEmpty() ||
                         zipCodeResult.isEmpty() || taxIdResult.isEmpty() || phoneNumberResult.isEmpty() ||
-                        accountNumberResult.isEmpty() || routingNumberResult.isEmpty() || stateResult.isEmpty()|| passwordResult.isEmpty() || usernameResult.isEmpty()){
+                        accountNumberResult.isEmpty() || routingNumberResult.isEmpty() || stateResult.isEmpty() || passwordResult.isEmpty() || usernameResult.isEmpty()) {
                     Toast.makeText(Register_Vendor.this, "Complete the registration fields.", Toast.LENGTH_SHORT).show();
                 } else {
                     ParseObject newStore = new ParseObject("Vendor");
