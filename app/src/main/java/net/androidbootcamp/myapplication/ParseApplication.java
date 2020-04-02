@@ -19,7 +19,7 @@ public class ParseApplication extends Application {
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("mynewapp") // should correspond to APP_ID env variable
                 .clientKey("oreo")  // set explicitly unless clientKey is explicitly configured on Parse server
-                .server("https://tester-20.herokuapp.com/parse").build());
+                .server("https://tester-20.heroku.com/parse").build());
 
         ParseInstallation.getCurrentInstallation().saveInBackground();
 
