@@ -4,9 +4,9 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -59,12 +59,13 @@ public class itemList_adapter extends RecyclerView.Adapter<itemList_adapter.View
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView item_name;
-        private TextView item_prices;
+        private EditText item_name;
+        private EditText item_prices;
         private ImageView item_pic;
-        private TextView prod_type;
-        private TextView item_quantity;
+        private EditText prod_type;
+        private EditText item_quantity;
         private ImageButton deleteBtn;
+        private ImageButton saveBtn;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             item_name = itemView.findViewById(R.id.item_name);
@@ -73,6 +74,7 @@ public class itemList_adapter extends RecyclerView.Adapter<itemList_adapter.View
             item_quantity = itemView.findViewById(R.id.item_quantity);
             prod_type = itemView.findViewById(R.id.prod_type);
             deleteBtn = itemView.findViewById(R.id.deleteBtn);
+            saveBtn = itemView.findViewById(R.id.saveBtn);
         }//end ViewHolder
 
         public void bind(final Product inv) {
@@ -81,6 +83,55 @@ public class itemList_adapter extends RecyclerView.Adapter<itemList_adapter.View
             item_prices.setText("$ " + inv.getpro_price());
             item_quantity.setText("Qty. " + inv.getpro_quantity());
             prod_type.setText(inv.getpro_type());
+
+            //modify item
+            item_name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    item_name.setEnabled(true);
+                    item_quantity.setText(inv.getpro_quantity());
+                }
+            });
+            item_prices.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    item_prices.setEnabled(true);
+                    item_prices.setText(Double.toString(inv.getpro_price()));
+                    item_quantity.setText(inv.getpro_quantity());
+                }
+            });
+            prod_type.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    prod_type.setEnabled(true);
+                    item_quantity.setText(inv.getpro_quantity());
+                }
+            });
+            item_quantity.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    item_quantity.setEnabled(true);
+                    item_quantity.setText(inv.getpro_quantity());
+                }
+            });
+
+            saveBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    inv.setpro_name(item_name.getText().toString());
+                    inv.setpro_quantity(Integer.parseInt(item_quantity.getText().toString()));
+                    inv.setpro_price(Double.parseDouble(item_prices.getText().toString()));
+                    inv.setpro_type(prod_type.getText().toString());
+                    inv.saveInBackground();
+
+                    //disable text fields
+                    prod_type.setEnabled(false);
+                    item_name.setEnabled(false);
+                    item_prices.setEnabled(false);
+                    item_quantity.setEnabled(false);
+                }
+            });
 
             //ref delete button
             deleteBtn.setOnClickListener(new View.OnClickListener() {
