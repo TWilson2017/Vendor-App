@@ -12,6 +12,7 @@ public class MainLoginRegister extends AppCompatActivity {
     Button register_button;
     Button storeManLogin;
     Button storeManRegister;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +26,7 @@ public class MainLoginRegister extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent inToMain = new Intent(MainLoginRegister.this, Manager_Vendor_Login.class);
+                inToMain.putExtra("type", "Vendor");
                 startActivity(inToMain);
             }
         });
@@ -37,6 +39,7 @@ public class MainLoginRegister extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent inToMain = new Intent(MainLoginRegister.this, Manager_Vendor_Login.class);
+                inToMain.putExtra("type", "Store");
                 startActivity(inToMain);
             }
         });

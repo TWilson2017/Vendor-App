@@ -10,10 +10,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
@@ -25,6 +21,10 @@ import net.androidbootcamp.myapplication.Product;
 import net.androidbootcamp.myapplication.R;
 
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 public class manageStoreFragment extends Fragment {
     private EditText item_qty, prod_name, sku_num, item_type, item_price;
