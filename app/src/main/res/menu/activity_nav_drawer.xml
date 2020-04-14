@@ -19,6 +19,11 @@
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/user"
+            android:title="Add a Store" />
+        <item
+            android:id="@+id/nav_addAStore"
+            android:icon="@drawable/ic_menu_manage"
             android:title="Profile" />
+
     </group>
 </menu>
