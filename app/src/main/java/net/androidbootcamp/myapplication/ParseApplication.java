@@ -2,6 +2,7 @@ package net.androidbootcamp.myapplication;
 
 import android.app.Application;
 
+import com.parse.Parse;
 import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 
@@ -15,11 +16,19 @@ public class ParseApplication extends Application {
         //https://pixel-nancy-9591.codio.io
 
         ParseObject.registerSubclass(Product.class);
-        /***Parse.enableLocalDatastore(this);
+        ParseObject.registerSubclass(Store.class);
+        Parse.enableLocalDatastore(this);
         Parse.initialize(new Parse.Configuration.Builder(this)
-         .applicationId("") // should correspond to APP_ID env variable
-         .clientKey(null)  // set explicitly unless clientKey is explicitly configured on Parse server
-         .server("").enableLocalDataStore().build());***/
+                /* .applicationId("mynewapp") // should correspond to APP_ID env variable
+                 .clientKey("oreo")  // set explicitly unless clientKey is explicitly configured on Parse server
+                 .server("https://tester-20.herokuapp.com/parse").enableLocalDataStore().build());
+                ParseInstallation.getCurrentInstallation().saveInBackground();
+                */
+                .applicationId("cjones-parse-server") // should correspond to APP_ID env variable
+                .clientKey("oreo")  // set explicitly unless clientKey is explicitly configured on Parse server
+                .server("https://parse-server-example-cjones.herokuapp.com/parse").enableLocalDataStore().build());
         ParseInstallation.getCurrentInstallation().saveInBackground();
+
+
     }
 }
