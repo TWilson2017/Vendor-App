@@ -13,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.parse.ParseFile;
+
 import net.androidbootcamp.myapplication.ui.store_home.HomeFragment;
 
 import java.util.List;
@@ -28,15 +31,11 @@ public class itemList_adapter extends RecyclerView.Adapter<itemList_adapter.View
 
     @NonNull
     @Override
-    //public itemList_adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // return null;
         View view = LayoutInflater.from(context).inflate(R.layout.inventory_rv, parent, false);
         return new ViewHolder(view);
     }
 
-
-    //  public void onBindViewHolder(@NonNull itemList_adapter.ViewHolder holder, int position) {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Product inv = store_inv.get(position);
@@ -84,6 +83,16 @@ public class itemList_adapter extends RecyclerView.Adapter<itemList_adapter.View
             item_quantity.setText("Qty. " + inv.getpro_quantity());
             prod_type.setText(inv.getpro_type());
 
+            ParseFile img = inv.getimg();
+            if (img != null) {
+                Glide.with(context)
+                        .load(img.getUrl())
+                        .into(item_pic);
+            } else {
+                Glide.with(context)
+                        .load(R.drawable.ic_menu_camera)
+                        .into(item_pic);
+            }//end else
             //ref delete button
             deleteBtn.setOnClickListener(new View.OnClickListener() {
                 @Override

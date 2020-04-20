@@ -5,6 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
@@ -16,12 +22,6 @@ import net.androidbootcamp.myapplication.itemList_adapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
@@ -32,7 +32,6 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @NonNull ViewGroup container, Bundle savedInstanceState) {
-        //homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home_items, container, false);
         return root;
     }// end oncreateview
@@ -40,7 +39,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         item = view.findViewById(R.id.item);
-        //item.addItemDecoration(new DividerItemDecoration(item.getContext(), DividerItemDecoration.VERTICAL));
+
         store_inv = new ArrayList<>();
         adapter = new itemList_adapter(getContext(), store_inv);
         item.setAdapter(adapter);
