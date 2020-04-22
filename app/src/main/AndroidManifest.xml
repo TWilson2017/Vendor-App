@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RegisterManager"></activity>
+        <activity android:name=".Revenue"></activity>
+        <activity android:name=".RegisterManager" />
         <activity
             android:name=".nav"
             android:label="@string/title_activity_nav"
