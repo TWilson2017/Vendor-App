@@ -1,22 +1,25 @@
 package net.androidbootcamp.myapplication.ui.manage_store;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.SaveCallback;
 
 import net.androidbootcamp.myapplication.Product;
 import net.androidbootcamp.myapplication.R;
 
 import java.util.List;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class manageStore extends AppCompatActivity {
 
@@ -37,7 +40,7 @@ public class manageStore extends AppCompatActivity {
         final TextView item_type = findViewById(R.id.item_type);
         final TextView item_price = findViewById(R.id.item_price);
         final Button add_item_btn = findViewById(R.id.add_item_btn);
-
+        final TextView sto_id = findViewById(R.id.sto_id);
         final ParseQuery<Product> query = ParseQuery.getQuery("Product");
 
         query.whereEqualTo("pro_sku_num", sku_num);
@@ -70,7 +73,16 @@ public class manageStore extends AppCompatActivity {
                             products.setpro_quantity(Integer.parseInt(item_qty.getText().toString()));
                             products.setsku_num(Integer.parseInt(sku_num.getText().toString()));
                             products.setpro_type(item_type.getText().toString());
-                            products.saveInBackground();
+                            Log.d("storeid", "" + sto_id.getText().toString());
+                            ParseObject stoobj = ParseObject.createWithoutData("Store", sto_id.getText().toString());
+                            products.put("sto_id", stoobj);
+                            products.saveInBackground(new SaveCallback() {
+                                @Override
+                                public void done(ParseException e) {
+                                    if (e != null)
+                                        e.printStackTrace();
+                                }
+                            });
 
                             Toast toast = Toast.makeText(getApplicationContext(), "Item Added", Toast.LENGTH_LONG);
                             toast.show();
