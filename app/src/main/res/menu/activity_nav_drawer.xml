@@ -25,6 +25,9 @@
             android:icon="@drawable/ic_menu_manage"
             android:title="Profile" />
 
+        <item
+            android:id="@+id/nav_addManager"
+            android:title="Management" />
 
     </group>
 </menu>
