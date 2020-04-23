@@ -10,6 +10,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
@@ -22,12 +26,8 @@ import net.androidbootcamp.myapplication.R;
 
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 public class manageStoreFragment extends Fragment {
-    private EditText item_qty, prod_name, sku_num, item_type, item_price;
+    private EditText item_qty, prod_name, sto_id, sku_num, item_type, item_price;
     private Button add_item;
     private GalleryViewModel galleryViewModel;
 
@@ -48,6 +48,7 @@ public class manageStoreFragment extends Fragment {
 
         final TextView item_qty = view.findViewById(R.id.item_qty);
         final TextView prod_name = view.findViewById(R.id.prod_name);
+        final TextView sto_id = view.findViewById(R.id.sto_id);
         final TextView sku_num = view.findViewById(R.id.sku_num);
         final TextView item_type = view.findViewById(R.id.item_type);
         final TextView item_price = view.findViewById(R.id.item_price);
@@ -64,6 +65,7 @@ public class manageStoreFragment extends Fragment {
                     item_qty.setText(products.get(0).getpro_quantity());
                     prod_name.setText(products.get(0).getpro_name());
                     item_type.setText(products.get(0).getpro_type());
+                    //sto_id.setText(products.get(0).getsto_id());
                     item_price.setText(Double.toString(products.get(0).getpro_price()));
                     sku_num.setText(Integer.toString(products.get(0).getpro_quantity()));
 
@@ -90,6 +92,10 @@ public class manageStoreFragment extends Fragment {
                                 products.setpro_quantity(Integer.parseInt(item_qty.getText().toString()));
                                 products.setsku_num(Integer.parseInt(sku_num.getText().toString()));
                                 products.setpro_type(item_type.getText().toString());
+                                Log.d("storeid", "" + sto_id.getText().toString());
+                                ParseObject stoobj = ParseObject.createWithoutData("Store", sto_id.getText().toString());
+                                products.put("sto_id", stoobj);
+                                //products.setsto_id(sto_id.getText().toString());
                                 products.setBrandId(object);
 
                                 products.saveInBackground(new SaveCallback() {

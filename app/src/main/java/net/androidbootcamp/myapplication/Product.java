@@ -13,6 +13,7 @@ public class Product extends ParseObject {
     public static final String PRODUCT_TYPE = "pro_type";
     public static final String SKU_NUM = "pro_sku_num";
     public static final String BRAND_ID = "bra_id";
+    public static final String STORE_ID = "sto_id";
 
     public Product() {
         super();
@@ -79,5 +80,12 @@ public class Product extends ParseObject {
         return getObjectId();
     }
 
+    //public void setsto_id(String storeId) {
+    //put(STORE_ID, storeId);
+    //}
+
+    //public String getsto_id() {
+    //return getObjectId();
+    //}//end getStoreID
 
 }//end inventory class

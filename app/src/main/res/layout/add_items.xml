@@ -104,6 +104,21 @@
         app:layout_constraintTop_toBottomOf="@+id/sku_num"
         app:layout_constraintVertical_bias="0.034" />
 
+    <EditText
+        android:id="@+id/sto_id"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:background="#ffff"
+        android:ems="10"
+        android:hint="Store Id"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.26"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.886" />
+
     <Button
         android:id="@+id/add_item_btn"
         android:layout_width="145dp"
@@ -117,6 +132,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.81" />
+        app:layout_constraintVertical_bias="0.972" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
