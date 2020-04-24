@@ -64,6 +64,7 @@ public class itemList_adapter extends RecyclerView.Adapter<itemList_adapter.View
         private TextView prod_type;
         private TextView item_quantity;
         private ImageButton deleteBtn;
+        private TextView skuNum;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -73,7 +74,7 @@ public class itemList_adapter extends RecyclerView.Adapter<itemList_adapter.View
             item_quantity = itemView.findViewById(R.id.item_quantity);
             prod_type = itemView.findViewById(R.id.prod_type);
             deleteBtn = itemView.findViewById(R.id.deleteBtn);
-
+            skuNum = itemView.findViewById(R.id.skuNum);
         }//end ViewHolder
 
         public void bind(final Product inv) {
@@ -82,6 +83,7 @@ public class itemList_adapter extends RecyclerView.Adapter<itemList_adapter.View
             item_prices.setText("$ " + inv.getpro_price());
             item_quantity.setText("Qty. " + inv.getpro_quantity());
             prod_type.setText(inv.getpro_type());
+            skuNum.setText(inv.getsku_num());
 
             ParseFile img = inv.getimg();
             if (img != null) {

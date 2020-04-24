@@ -9,28 +9,10 @@
         android:id="@+id/nav_home"
         android:name="net.androidbootcamp.myapplication.ui.store_home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home_items">
-
-        <action
-            android:id="@+id/action_HomeFragment_to_HomeSecondFragment"
-            app:destination="@id/nav_home_second" />
-    </fragment>
-    <fragment
-        android:id="@+id/nav_home_second"
-        android:name="net.androidbootcamp.myapplication.ui.store_home.HomeSecondFragment"
-        android:label="@string/home_second"
-        tools:layout="@layout/fragment_home_second">
-        <action
-            android:id="@+id/action_HomeSecondFragment_to_HomeFragment"
-            app:destination="@id/nav_home" />
-
-        <argument
-            android:name="myArg"
-            app:argType="string" />
-    </fragment>
+        tools:layout="@layout/fragment_home_items" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/ManageStore"
         android:name="net.androidbootcamp.myapplication.ui.manage_store.manageStoreFragment"
         android:label="@string/menu_gallery" />
 
@@ -40,7 +22,7 @@
         android:label="@string/menu_update" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/AddStore"
         android:name="net.androidbootcamp.myapplication.ui.profile.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />

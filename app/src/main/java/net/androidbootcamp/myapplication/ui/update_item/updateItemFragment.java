@@ -8,6 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
@@ -19,12 +23,8 @@ import net.androidbootcamp.myapplication.R;
 
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 public class updateItemFragment extends Fragment {
-    private EditText item_qty, prod_name, sku_num, item_type, item_price;
+    private EditText itemQty, itemName, sku_num, itemType, itemPrice;
     private Button add_item;
     private UpdateViewModel galleryViewModel;
 
@@ -32,7 +32,7 @@ public class updateItemFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @NonNull ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.add_items, container, false);
+        View root = inflater.inflate(R.layout.update_item_fragment, container, false);
         return root;
     }// end oncreateview
 
@@ -44,14 +44,27 @@ public class updateItemFragment extends Fragment {
         //-------------------------------
 
         final EditText item_qty = view.findViewById(R.id.item_qty);
-        final EditText prod_name = view.findViewById(R.id.prod_name);
+        final EditText prod_name = view.findViewById(R.id.itemName);
         final EditText sku_num = view.findViewById(R.id.sku_num);
         final EditText item_type = view.findViewById(R.id.item_type);
         final EditText item_price = view.findViewById(R.id.item_price);
         final Button add_item_btn = view.findViewById(R.id.add_item_btn);
 
+/*
+//get string extra
+        String skuNum;
+        Intent answer = getIntent();
+        skuNum = answer.getStringExtra("sku");
+        //run query with sku
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Product");
+        query.whereEqualTo("pro_sku_num", Integer.parseInt(skuNum));
+        //populate with results
+*/
         final ParseQuery<Product> query = ParseQuery.getQuery("Product");
         query.whereEqualTo("pro_sku_num", sku_num);
+
+
         query.findInBackground(new FindCallback<Product>() {
             @Override
             public void done(List<Product> products, ParseException e) {

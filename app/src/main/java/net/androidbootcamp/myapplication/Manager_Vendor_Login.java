@@ -7,14 +7,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import java.util.List;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class Manager_Vendor_Login extends AppCompatActivity {
     EditText username_input;
@@ -65,13 +65,14 @@ public class Manager_Vendor_Login extends AppCompatActivity {
 
                     query.findInBackground(new FindCallback<ParseObject>() {
                         // TODO: change this to show all stores
-                        Intent inToMain = new Intent(Manager_Vendor_Login.this, nav.class);
 
                         public void done(List<ParseObject> object, ParseException e) {
                             if (e == null) {
                                 if (object.size() == 0) {
                                     Toast.makeText(Manager_Vendor_Login.this, "Invalid user credentials", Toast.LENGTH_LONG).show();
                                 } else {
+                                    Intent inToMain = new Intent(Manager_Vendor_Login.this, nav.class);
+                                    inToMain.putExtra("type", loginType);
                                     startActivity(inToMain);
                                 }
                             } else {

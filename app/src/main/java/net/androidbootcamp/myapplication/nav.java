@@ -1,5 +1,6 @@
 package net.androidbootcamp.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 
@@ -28,14 +29,34 @@ public class nav extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_update, R.id.nav_addAStore, R.id.nav_addManager)
-                .setDrawerLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+
+        String loginType;
+        //condition that determines view based on login
+        Intent answer = getIntent();
+        loginType = answer.getStringExtra("type");
+
+        if (loginType == "Vendor") {
+            mAppBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.NotDone, R.id.nav_addManager)
+                    .setDrawerLayout(drawer)
+                    .build();
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+            NavigationUI.setupWithNavController(navigationView, navController);
+        }//if
+
+        else {//store manager
+            mAppBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.nav_home, R.id.ManageStore, R.id.nav_update, R.id.nav_addManager,
+                    R.id.revenue)
+                    .setDrawerLayout(drawer)
+                    .build();
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+            NavigationUI.setupWithNavController(navigationView, navController);
+        }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AddManger"></activity>
+        <activity android:name=".AddManger" />
         <activity android:name=".Revenue" />
         <activity android:name=".RegisterManager" />
         <activity

@@ -9,7 +9,7 @@
             android:icon="@drawable/home"
             android:title="My Store" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/ManageStore"
             android:icon="@drawable/vendor"
             android:title="Manage Store" />
         <item
@@ -17,17 +17,22 @@
             android:icon="@drawable/ic_menu_manage"
             android:title="Update Item" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/AddStore"
             android:icon="@drawable/user"
             android:title="Add a Store" />
         <item
-            android:id="@+id/nav_addAStore"
+            android:id="@+id/NotDone"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Profile" />
+            android:title="Under Construction" />
 
         <item
             android:id="@+id/nav_addManager"
             android:title="Management" />
+
+        <item
+            android:id="@+id/revenue"
+            android:title="Revenue" />
+
 
     </group>
 </menu>
