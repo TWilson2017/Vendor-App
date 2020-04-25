@@ -13,7 +13,7 @@
             android:icon="@drawable/vendor"
             android:title="Manage Store" />
         <item
-            android:id="@+id/nav_update"
+            android:id="@+id/updateItem"
             android:icon="@drawable/ic_menu_manage"
             android:title="Update Item" />
         <item

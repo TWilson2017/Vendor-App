@@ -1,13 +1,13 @@
-package net.androidbootcamp.myapplication.ui.update_item;
+package net.androidbootcamp.myapplication.ui.AddStore;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class UpdateViewModel extends ViewModel {
+public class AddStoreModel extends ViewModel {
     private MutableLiveData<String> mText;
 
-    public UpdateViewModel() {
+    public AddStoreModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is gallery fragment");
     }

@@ -6,7 +6,7 @@
     android:background="#f7ffdd">
 
     <EditText
-        android:id="@+id/sku_num"
+        android:id="@+id/iSkuNum"
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:background="#ffff"
@@ -41,7 +41,7 @@
         app:layout_constraintVertical_bias="0.046" />
 
     <EditText
-        android:id="@+id/item_price"
+        android:id="@+id/itemPrice"
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:layout_marginTop="24dp"
@@ -53,7 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.26"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_type"
+        app:layout_constraintTop_toBottomOf="@+id/iType"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
@@ -66,7 +66,7 @@
         android:ems="10"
         android:hint="Items on Hand"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/sku_num"
+        app:layout_constraintBottom_toTopOf="@+id/iSkuNum"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.26"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +89,7 @@
         app:layout_constraintVertical_bias="0.316" />
 
     <EditText
-        android:id="@+id/item_type"
+        android:id="@+id/iType"
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:layout_marginTop="12dp"
@@ -101,7 +101,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.26"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sku_num"
+        app:layout_constraintTop_toBottomOf="@+id/iSkuNum"
         app:layout_constraintVertical_bias="0.034" />
 
     <EditText
@@ -120,7 +120,7 @@
         app:layout_constraintVertical_bias="0.886" />
 
     <Button
-        android:id="@+id/add_item_btn"
+        android:id="@+id/add_ibtn"
         android:layout_width="145dp"
         android:layout_height="40dp"
         android:layout_marginTop="100dp"

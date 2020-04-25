@@ -9,7 +9,11 @@
         android:id="@+id/nav_home"
         android:name="net.androidbootcamp.myapplication.ui.store_home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home_items" />
+        tools:layout="@layout/fragment_home_items">
+        <action
+            android:id="@+id/action_nav_home_to_updateItem"
+            app:destination="@id/updateItem" />
+    </fragment>
 
     <fragment
         android:id="@+id/ManageStore"
@@ -17,13 +21,27 @@
         android:label="@string/menu_gallery" />
 
     <fragment
-        android:id="@+id/nav_update"
-        android:name="net.androidbootcamp.myapplication.ui.update_item.updateItemFragment"
-        android:label="@string/menu_update" />
+        android:id="@+id/updateItem"
+        android:name="net.androidbootcamp.myapplication.ui.moditem.ModItemFragment"
+        android:label="@string/menu_update">
+        <action
+            android:id="@+id/action_updateItem_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/AddStore"
-        android:name="net.androidbootcamp.myapplication.ui.profile.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:name="net.androidbootcamp.myapplication.ui.AddStore.addAStoreFragment"
+        android:label="Add a Store" />
+
+    <fragment
+        android:id="@+id/revenue"
+        android:name="net.androidbootcamp.myapplication.ui.revenue.RevenueFragment"
+        android:label="Revenue" />
+
+    <fragment
+        android:id="@+id/AddManager"
+        android:name="net.androidbootcamp.myapplication.ui.addmanger.AddMangerFragment"
+        android:label="Add Manager" />
 </navigation>

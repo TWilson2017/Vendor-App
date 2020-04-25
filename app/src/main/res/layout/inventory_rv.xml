@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="175dp">
 
@@ -23,8 +21,7 @@
         android:layout_marginRight="246dp"
         android:layout_marginBottom="25dp"
         android:layout_weight="1"
-        android:contentDescription="TODO"
-        app:srcCompat="@drawable/ic_menu_camera" />
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/item_name"
@@ -111,25 +108,23 @@
         android:textColor="#2e4057"
         android:textSize="15sp" />
 
-    <ImageButton
+    <Button
         android:id="@+id/deleteBtn"
-        android:layout_width="48px"
-        android:layout_height="39px"
+        android:layout_width="48dp"
+        android:layout_height="39dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="342dp"
-        android:layout_marginLeft="342dp"
-        android:layout_marginTop="105dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginRight="21dp"
-        android:layout_marginBottom="31dp"
-        android:background="@android:color/transparent"
-        app:srcCompat="@drawable/ic_trash"
-        tools:ignore="VectorDrawableCompat" />
+        android:layout_marginStart="328dp"
+        android:layout_marginLeft="328dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="12dp"
+        android:text="del" />
 
     <Button
         android:id="@+id/EditBtn"
@@ -141,16 +136,16 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="186dp"
-        android:layout_marginLeft="186dp"
-        android:layout_marginTop="133dp"
-        android:layout_marginEnd="137dp"
-        android:layout_marginRight="137dp"
-        android:layout_marginBottom="-6dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginLeft="164dp"
+        android:layout_marginTop="121dp"
+        android:layout_marginEnd="159dp"
+        android:layout_marginRight="159dp"
+        android:layout_marginBottom="6dp"
         android:text="Edit" />
 
     <TextView
-        android:id="@+id/skuNum"
+        android:id="@+id/tvsk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -159,13 +154,13 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="151dp"
-        android:layout_marginLeft="151dp"
-        android:layout_marginTop="89dp"
-        android:layout_marginEnd="202dp"
-        android:layout_marginRight="202dp"
-        android:layout_marginBottom="67dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="158dp"
+        android:layout_marginEnd="324dp"
+        android:layout_marginRight="324dp"
+        android:layout_marginBottom="-2dp"
         android:text="TextView"
-        android:visibility="invisible" />
+        android:visibility="visible" />
 
 </RelativeLayout>

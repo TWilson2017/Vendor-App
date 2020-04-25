@@ -36,10 +36,10 @@ public class manageStore extends AppCompatActivity {
         //-------------------------------
         final TextView item_qty = findViewById(R.id.item_qty);
         final TextView prod_name = findViewById(R.id.prod_name);
-        final TextView sku_num = findViewById(R.id.sku_num);
-        final TextView item_type = findViewById(R.id.item_type);
-        final TextView item_price = findViewById(R.id.item_price);
-        final Button add_item_btn = findViewById(R.id.add_item_btn);
+        final TextView sku_num = findViewById(R.id.iSkuNum);
+        final TextView item_type = findViewById(R.id.iType);
+        final TextView item_price = findViewById(R.id.itemPrice);
+        final Button add_item_btn = findViewById(R.id.add_ibtn);
         final TextView sto_id = findViewById(R.id.sto_id);
         final ParseQuery<Product> query = ParseQuery.getQuery("Product");
 

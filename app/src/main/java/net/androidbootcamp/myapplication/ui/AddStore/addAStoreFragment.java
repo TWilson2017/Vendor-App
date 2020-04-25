@@ -1,4 +1,4 @@
-package net.androidbootcamp.myapplication.ui;
+package net.androidbootcamp.myapplication.ui.AddStore;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

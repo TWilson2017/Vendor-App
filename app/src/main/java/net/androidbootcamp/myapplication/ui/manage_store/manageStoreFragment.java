@@ -49,10 +49,10 @@ public class manageStoreFragment extends Fragment {
         final TextView item_qty = view.findViewById(R.id.item_qty);
         final TextView prod_name = view.findViewById(R.id.prod_name);
         final TextView sto_id = view.findViewById(R.id.sto_id);
-        final TextView sku_num = view.findViewById(R.id.sku_num);
-        final TextView item_type = view.findViewById(R.id.item_type);
-        final TextView item_price = view.findViewById(R.id.item_price);
-        final Button add_item_btn = view.findViewById(R.id.add_item_btn);
+        final TextView sku_num = view.findViewById(R.id.iSkuNum);
+        final TextView item_type = view.findViewById(R.id.iType);
+        final TextView item_price = view.findViewById(R.id.itemPrice);
+        final Button add_item_btn = view.findViewById(R.id.add_ibtn);
 
         final ParseQuery<Product> query = ParseQuery.getQuery("Product");
 

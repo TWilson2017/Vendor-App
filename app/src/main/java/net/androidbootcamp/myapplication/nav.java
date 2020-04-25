@@ -37,7 +37,7 @@ public class nav extends AppCompatActivity {
 
         if (loginType == "Vendor") {
             mAppBarConfiguration = new AppBarConfiguration.Builder(
-                    R.id.NotDone, R.id.nav_addManager)
+                    R.id.nav_home, R.id.NotDone, R.id.nav_addManager)
                     .setDrawerLayout(drawer)
                     .build();
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -47,14 +47,13 @@ public class nav extends AppCompatActivity {
 
         else {//store manager
             mAppBarConfiguration = new AppBarConfiguration.Builder(
-                    R.id.nav_home, R.id.ManageStore, R.id.nav_update, R.id.nav_addManager,
-                    R.id.revenue)
+                    R.id.nav_home, R.id.ManageStore, R.id.nav_addManager, R.id.revenue)
                     .setDrawerLayout(drawer)
                     .build();
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
             NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
             NavigationUI.setupWithNavController(navigationView, navController);
-        }
+        }//else
     }
 
 
