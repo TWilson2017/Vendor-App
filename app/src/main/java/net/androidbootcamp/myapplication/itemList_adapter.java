@@ -1,11 +1,10 @@
 package net.androidbootcamp.myapplication;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
 
-import net.androidbootcamp.myapplication.ui.moditem.ModItemFragment;
 import net.androidbootcamp.myapplication.ui.store_home.HomeFragment;
 
 import java.util.List;
@@ -65,9 +63,8 @@ public class itemList_adapter extends RecyclerView.Adapter<itemList_adapter.View
         private ImageView item_pic;
         private TextView prod_type;
         private TextView item_quantity;
-        private Button deleteBtn;
+        private ImageButton deleteBtn;
         private TextView skuNum;
-        private Button EditBtn;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,7 +75,7 @@ public class itemList_adapter extends RecyclerView.Adapter<itemList_adapter.View
             prod_type = itemView.findViewById(R.id.prod_type);
             deleteBtn = itemView.findViewById(R.id.deleteBtn);
             skuNum = itemView.findViewById(R.id.tvsk);
-            EditBtn = itemView.findViewById(R.id.EditBtn);
+
         }//end ViewHolder
 
         public void bind(final Product inv) {
@@ -115,21 +112,7 @@ public class itemList_adapter extends RecyclerView.Adapter<itemList_adapter.View
                 }
             });
 
-            EditBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
-                    // Activity activity = (Activity) context;
-                    Intent i = activity.getIntent();
-                    i.putExtra("sku", skuNum.getText().toString());
 
-                    Fragment myFragment = new ModItemFragment();
-                    activity.getSupportFragmentManager()
-                            .beginTransaction().replace(R.id.nav_host_fragment, myFragment)
-                            .addToBackStack(null)
-                            .commit();
-                }
-            });
         }//end bind
 
         public void removeAt(int position) {

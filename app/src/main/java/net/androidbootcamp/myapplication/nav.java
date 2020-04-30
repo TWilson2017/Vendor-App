@@ -37,7 +37,7 @@ public class nav extends AppCompatActivity {
 
         if (loginType == "Vendor") {
             mAppBarConfiguration = new AppBarConfiguration.Builder(
-                    R.id.nav_home, R.id.NotDone, R.id.nav_addManager)
+                    R.id.nav_home, R.id.NotDone, R.id.nav_addManager, R.id.ManageStore)
                     .setDrawerLayout(drawer)
                     .build();
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
